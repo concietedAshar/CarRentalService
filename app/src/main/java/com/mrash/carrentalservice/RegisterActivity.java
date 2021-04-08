@@ -19,24 +19,29 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         UserName =findViewById(R.id.UserName);
         etInputEmail = findViewById(R.id.etInputEmail);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
-       // tvAlreadyAUser = findViewById(R.id.tvAlreadyAUser);
+        btnRegister = findViewById(R.id.btnRegister);
+        tvAlreadyAUser = findViewById(R.id.tvAlreadyAUser);
 
         String user,email,password,confirmPass;
         user = UserName.getText().toString().trim();
         email = etInputEmail.getText().toString().trim();
         password = etPassword.getText().toString().trim();
         confirmPass = etConfirmPassword.getText().toString().trim();
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isValidate())
                 {
-                    Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this,com.mrash.carrentalservice.LoginActivity.class);
                     startActivity(intent);
+                    intent.putExtra("keyUser", user);
+                    intent.putExtra("password", password);
                     finish();
                 }
 
@@ -45,15 +50,14 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-      /*  tvAlreadyAUser.setOnClickListener(new View.OnClickListener() {
+        tvAlreadyAUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
             }
         });
-*/
-    }
 
+    }
     private boolean isValidate() {
         boolean flag = true;
         String user,email,password,confirmPass;

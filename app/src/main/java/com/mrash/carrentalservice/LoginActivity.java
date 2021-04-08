@@ -27,17 +27,19 @@ public class LoginActivity extends AppCompatActivity {
         etUserName = findViewById(R.id.etUserName);
         etPassword = findViewById(R.id.etPassword);
         tvSignUp = findViewById(R.id.tvSignUp);
-       // Intent  intent = getIntent();
-       // USERNAME = intent.getStringExtra("keyUser");
-      //  PASSWORD = intent.getStringExtra("password");
+        btn_login = findViewById(R.id.btn_login);
+        Intent  intent = getIntent();
+        USERNAME = intent.getStringExtra("keyUser");
+        PASSWORD = intent.getStringExtra("password");
 
-        String userName,pass;
-        userName = etUserName.getText().toString().trim();
-        pass = etPassword.getText().toString().trim();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String userName,pass;
+                userName = etUserName.getText().toString().trim();
+                pass = etPassword.getText().toString().trim();
 
                 if(userName.equals(" ") || userName.isEmpty())
                 {
@@ -48,12 +50,14 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Toast.makeText(LoginActivity.this, "Enter PassWord", Toast.LENGTH_SHORT).show();
                 }
+
                 if(userName.equals(USERNAME) && pass.equals(PASSWORD))
                 {
 
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                            finish();
 
+                            Intent intent = new Intent(LoginActivity.this,com.mrash.carrentalservice.MainActivity.class);
+                            startActivity(intent);
+                            finish();
                 }
                 else
                 {
@@ -63,13 +67,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-       /* tvSignUp.setOnClickListener(new View.OnClickListener() {
+        tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
                 finish();
             }
         });
-*/
+
     }
 }
