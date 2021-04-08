@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
 
      String USERNAME = "admin";
-     String PASSWORD = "admin";
+     String PASSWORD  = "admin";
 
     TextView tvSignUp;
     @Override
@@ -29,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         tvSignUp = findViewById(R.id.tvSignUp);
         btn_login = findViewById(R.id.btn_login);
         Intent  intent = getIntent();
-        USERNAME = intent.getStringExtra("keyUser");
-        PASSWORD = intent.getStringExtra("password");
+       // USERNAME = intent.getStringExtra("keyUser");
+       // PASSWORD = intent.getStringExtra("password");
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Intent intent = new Intent(LoginActivity.this,com.mrash.carrentalservice.MainActivity.class);
                     startActivity(intent);
-                    finish();
+                    //finish();
 
                 }
                 else
@@ -74,11 +74,13 @@ public class LoginActivity extends AppCompatActivity {
         if(userName.equals(" ") || userName.isEmpty())
         {
             Toast.makeText(LoginActivity.this, "Enter UserName", Toast.LENGTH_SHORT).show();
+            flag = false;
         }
 
         if(pass.equals(" ") || pass.isEmpty())
         {
             Toast.makeText(LoginActivity.this, "Enter PassWord", Toast.LENGTH_SHORT).show();
+            flag = false;
         }
 
         if(!(userName.equals(USERNAME) && pass.equals(PASSWORD)))

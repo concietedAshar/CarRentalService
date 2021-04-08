@@ -13,8 +13,11 @@
     <string name="driver_Name">Driver Name</string>
     <string name="car_name">Car Name</string>
     <string name="driver_mobile_no">Driver Mobile No</string>
-    <string name="adress">Adress</string>
+    <string name="adress">Address</string>
     <string name="add_Info">Add Information</string>
+    <string name="car_Fare">Fare</string>
     <string name="des_logo">logo</string>
+    <string name="btn_call">Call</string>
+    <string name="show_Location">Show Location</string>
 
 </resources>

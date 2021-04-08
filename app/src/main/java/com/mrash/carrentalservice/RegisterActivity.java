@@ -29,9 +29,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         String user,email,password,confirmPass;
         user = UserName.getText().toString().trim();
-        email = etInputEmail.getText().toString().trim();
-        password = etPassword.getText().toString().trim();
-        confirmPass = etConfirmPassword.getText().toString().trim();
+        email = etInputEmail.getText().toString();
+        password = etPassword.getText().toString();
+        confirmPass = etConfirmPassword.getText().toString();
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(intent);
                     intent.putExtra("keyUser", user);
                     intent.putExtra("password", password);
-                    finish();
+                    //finish();
                 }
 
 
