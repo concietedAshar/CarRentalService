@@ -23,22 +23,21 @@ public class RegisterActivity extends AppCompatActivity {
         etInputEmail = findViewById(R.id.etInputEmail);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
-        tvAlreadyAUser = findViewById(R.id.tvAlreadyAUser);
+       // tvAlreadyAUser = findViewById(R.id.tvAlreadyAUser);
 
+        String user,email,password,confirmPass;
+        user = UserName.getText().toString().trim();
+        email = etInputEmail.getText().toString().trim();
+        password = etPassword.getText().toString().trim();
+        confirmPass = etConfirmPassword.getText().toString().trim();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isValidate())
                 {
-                    String user,email,password,confirmPass;
-                    user = UserName.getText().toString().trim();
-                    email = etInputEmail.getText().toString().trim();
-                    password = etPassword.getText().toString().trim();
-                    confirmPass = etConfirmPassword.getText().toString().trim();
-
-                    // If Wanna send Intent and data to login activiy or other
-                    //Done Code here
-
+                    Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
 
 
@@ -46,13 +45,13 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-        tvAlreadyAUser.setOnClickListener(new View.OnClickListener() {
+      /*  tvAlreadyAUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
             }
         });
-
+*/
     }
 
     private boolean isValidate() {

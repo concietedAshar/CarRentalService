@@ -10,6 +10,11 @@
     <string name="password_forget">Forget Password?</string>
     <string name="dont_have_an_account">Don\'t Have an Account?</string>
     <string name="signup">SignUp?</string>
-    <string name="driver_Name"></string>
+    <string name="driver_Name">Driver Name</string>
+    <string name="car_name">Car Name</string>
+    <string name="driver_mobile_no">Driver Mobile No</string>
+    <string name="adress">Adress</string>
+    <string name="add_Info">Add Information</string>
+    <string name="des_logo">logo</string>
 
 </resources>
