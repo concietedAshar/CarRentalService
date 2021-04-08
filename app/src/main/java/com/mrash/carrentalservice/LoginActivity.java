@@ -40,28 +40,16 @@ public class LoginActivity extends AppCompatActivity {
                 String userName,pass;
                 userName = etUserName.getText().toString().trim();
                 pass = etPassword.getText().toString().trim();
-
-                if(userName.equals(" ") || userName.isEmpty())
+                if(isValidate())
                 {
-                    Toast.makeText(LoginActivity.this, "Enter UserName", Toast.LENGTH_SHORT).show();
-                }
+                    Intent intent = new Intent(LoginActivity.this,com.mrash.carrentalservice.MainActivity.class);
+                    startActivity(intent);
+                    finish();
 
-                if(pass.equals(" ") || pass.isEmpty())
-                {
-                    Toast.makeText(LoginActivity.this, "Enter PassWord", Toast.LENGTH_SHORT).show();
-                }
-
-                if(userName.equals(USERNAME) && pass.equals(PASSWORD))
-                {
-
-
-                            Intent intent = new Intent(LoginActivity.this,com.mrash.carrentalservice.MainActivity.class);
-                            startActivity(intent);
-                            finish();
                 }
                 else
                 {
-                    Toast.makeText(LoginActivity.this, "Email/Password Doesn't match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -75,5 +63,30 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean isValidate() {
+        boolean flag = true;
+
+        String userName,pass;
+        userName = etUserName.getText().toString().trim();
+        pass = etPassword.getText().toString().trim();
+        if(userName.equals(" ") || userName.isEmpty())
+        {
+            Toast.makeText(LoginActivity.this, "Enter UserName", Toast.LENGTH_SHORT).show();
+        }
+
+        if(pass.equals(" ") || pass.isEmpty())
+        {
+            Toast.makeText(LoginActivity.this, "Enter PassWord", Toast.LENGTH_SHORT).show();
+        }
+
+        if(!(userName.equals(USERNAME) && pass.equals(PASSWORD)))
+        {
+            flag = false;
+            Toast.makeText(LoginActivity.this, "Email/Password Doesn't match", Toast.LENGTH_SHORT).show();
+        }
+
+        return flag;
     }
 }
